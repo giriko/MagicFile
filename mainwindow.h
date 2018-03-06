@@ -5,6 +5,7 @@
 #include <QSignalMapper>
 #include <QFileDialog>
 #include <QDebug>
+#include "dialog.h"
 
 namespace Ui {
 class MainWindow;

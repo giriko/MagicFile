@@ -1,15 +1,18 @@
 #ifndef FILEHANDLER_H
 #define FILEHANDLER_H
-#include <string>
-#include <vector>
-#include <boost/filesystem.hpp>
+#include <QFile>
+#include <QDir>
+#include <QFileInfo>
+#include <QDateTime>
 
-using namespace boost::filesystem;
 class FileHandler
 {
 public:
     FileHandler();
-    std::vector<path> getFileList(path p);
+    qint64 fileSize(QString f);
+    QDateTime lastTouch(QString f);
+
+
 };
 
 #endif // FILEHANDLER_H

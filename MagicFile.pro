@@ -26,14 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    filehandler.cpp
+    filehandler.cpp \
+    dialog.cpp
 
 HEADERS += \
         mainwindow.h \
-    filehandler.h
+    filehandler.h \
+    dialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    dialog.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../boost_1_66_0/stage/lib/release/ -lboost_filesystem
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../boost_1_66_0/stage/lib/debug/ -lboost_filesystem

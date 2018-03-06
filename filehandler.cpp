@@ -1,25 +1,22 @@
-/*
 #include "filehandler.h"
-#include "boost/filesystem.hpp"
-#include <iostream>
-using namespace boost::filesystem;
+
 FileHandler::FileHandler()
 {
 
 }
 
-std::vector<path> FileHandler::getFileList(path p)
+qint64 FileHandler::fileSize(QString f)
 {
-    std::vector<std::string> list;
-    try
-    {
-        if (exists(p))
-        {
-            list.push_back(p);
-        }
-    } catch (const filesystem_error& ex) {
-        std::cout << ex.what() << std::endl;
+    if(!QFile(f).exists()) {
+        qWarning("The file doesn't exist!");
+        return 1;
     }
-    return list;
+    QFileInfo fileinfo(f);
+    return fileinfo.size();
 }
-*/
+
+QDateTime FileHandler::lastTouch(QString f)
+{
+    QFileInfo filename(f);
+    return filename.lastRead();
+}
