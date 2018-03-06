@@ -25,10 +25,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    filehandler.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    filehandler.h
 
 FORMS += \
         mainwindow.ui
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../boost_1_66_0/stage/lib/release/ -lboost_filesystem
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../boost_1_66_0/stage/lib/debug/ -lboost_filesystem
+else:unix: LIBS += -L$$PWD/../boost_1_66_0/stage/lib/ -lboost_filesystem
+
+INCLUDEPATH += $$PWD/../boost_1_66_0/
+DEPENDPATH += $$PWD/../boost_1_66_0/
+
+QMAKE_CXXFLAGS += -std=c++0x

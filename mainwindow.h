@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSignalMapper>
+#include <QFileDialog>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,12 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void newProfile();
+    void about();
+    void createActions();
 };
+
 
 #endif // MAINWINDOW_H
