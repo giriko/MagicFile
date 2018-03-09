@@ -4,6 +4,8 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 
 namespace Ui {
 class Dialog;
@@ -19,6 +21,7 @@ public:
     void setName(const QString &name);
     void setDirName(const QString &dir);
     QString getName();
+    QString getDirName();
 
 private slots:
     void on_pushButton_clicked();
@@ -27,6 +30,8 @@ private slots:
 
 private:
     Ui::Dialog *ui;
+    QString mDirName;
+    QString mName;
 
 };
 

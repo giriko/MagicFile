@@ -21,17 +21,21 @@ void Dialog::on_pushButton_clicked()
 
 void Dialog::on_buttonBox_accepted() //TODO: Make this work lol
 {
-    if (ui->nameLine->text().isEmpty()) {
-        ui->buttonBox->setEnabled(false);
-    } else {
-        ui->buttonBox->setEnabled(true);
+    if(!ui->nameLine->text().isEmpty() && !ui->dirLine->text().isEmpty())
+    {
+        QFile file("./conf.csv");
+        if(file.open(QFile::WriteOnly|QFile::Truncate))
+        {
+            QTextStream stream(&file);
+            stream << getName() << "," <<getDirName();
+        }
     }
 
 }
 
 void Dialog::setName(const QString& name)
 {
-    // ui->tableWidget->setText(name);
+    mName = ui->nameLine->setText(name);
 }
 
 QString Dialog::getName()
@@ -42,5 +46,12 @@ QString Dialog::getName()
 
 void Dialog::setDirName(const QString &dir)
 {
-    ui->dirLine->setText(dir);
+    mDirName =  ui->dirLine->setText(dir);
+
+}
+
+QString Dialog::getDirName()
+{
+    QString dirName = ui->dirLine->text();
+    return dirName;
 }
