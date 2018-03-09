@@ -15,7 +15,8 @@ Dialog::~Dialog()
 
 void Dialog::on_pushButton_clicked()
 {
-    QFileDialog::getExistingDirectory(this, "Choose a Directory to Monitor", QDir::homePath());
+    QString dirName = QFileDialog::getExistingDirectory(this, "Choose a Directory to Monitor", QDir::homePath());
+    Dialog::setDirName(dirName);
 }
 
 void Dialog::on_buttonBox_accepted() //TODO: Make this work lol
@@ -37,4 +38,9 @@ QString Dialog::getName()
 {
     QString name = ui->nameLine->text();
     return name;
+}
+
+void Dialog::setDirName(const QString &dir)
+{
+    ui->dirLine->setText(dir);
 }

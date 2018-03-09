@@ -3,6 +3,7 @@
 
 #include <QInputDialog>
 #include <QFileDialog>
+#include <QDir>
 
 namespace Ui {
 class Dialog;
@@ -15,7 +16,8 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
-    void setName(const QString& name);
+    void setName(const QString &name);
+    void setDirName(const QString &dir);
     QString getName();
 
 private slots:

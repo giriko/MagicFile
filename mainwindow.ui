@@ -20,30 +20,6 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTableWidget" name="tableWidget">
-      <property name="sortingEnabled">
-       <bool>true</bool>
-      </property>
-      <property name="rowCount">
-       <number>11</number>
-      </property>
-      <property name="columnCount">
-       <number>2</number>
-      </property>
-      <row>
-       <property name="text">
-        <string>New Row</string>
-       </property>
-      </row>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
-      <row/>
       <column>
        <property name="text">
         <string>Profile</string>
