@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include "dialog.h"
+#include <QVector>
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVector<QString> mDir;
 
 private slots:
     void newProfile();

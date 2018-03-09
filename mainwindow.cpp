@@ -3,7 +3,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    mDir()
 {
     ui->setupUi(this);
     createActions();
@@ -23,8 +24,11 @@ void MainWindow::createActions()
 
 void MainWindow::newProfile()
 {
-    Dialog *profileDialog = new Dialog(this);
-    profileDialog->show();
+    static Dialog* dialog = new Dialog(this);
+    bool ok;
+    QString name = dialog->getName();
+    dialog->show();
+    mDir.append(name);
 }
 
 void MainWindow::about()
@@ -32,3 +36,5 @@ void MainWindow::about()
     QString s = "Written by an idiot";
     qDebug("%s", qUtf8Printable(s));
 }
+
+
