@@ -10,7 +10,7 @@ void TomlHandler::newTomlProfile(QString& name, QString& dir)
 {
     std::string uname = TomlHandler::toUtf8(name);
     std::string udir = TomlHandler::toUtf8(dir);
-    QString conf = ".local/MagicFile"; //Dumby
+    QString conf = "magicfile.toml"; //Dumby
     if(!QFile(conf).exists()) {
         std::shared_ptr<cpptoml::table> root = cpptoml::make_table();
         auto table = cpptoml::make_table();
@@ -18,7 +18,7 @@ void TomlHandler::newTomlProfile(QString& name, QString& dir)
 
         root->insert(uname, table);
 
-        auto f = parseFile(conf);
+        // auto f = parseFile(conf);
         std::ofstream os;
         os.open(conf.toStdString());
         cpptoml::toml_writer* writer(std::stringstream);

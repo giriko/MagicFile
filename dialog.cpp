@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include "tomlhandler.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -21,37 +22,28 @@ void Dialog::on_pushButton_clicked()
 
 void Dialog::on_buttonBox_accepted() //TODO: Make this work lol
 {
-    if(!ui->nameLine->text().isEmpty() && !ui->dirLine->text().isEmpty())
-    {
-        QFile file("./conf.csv");
-        if(file.open(QFile::WriteOnly|QFile::Truncate))
-        {
-            QTextStream stream(&file);
-            stream << getName() << "," <<getDirName();
-        }
-    }
-
+    qDebug() << "name: " << mName << " dir " << mDirName;
+        TomlHandler th;
+        th.newTomlProfile(mName, mDirName);
 }
 
 void Dialog::setName(const QString& name)
 {
-    mName = name;
+    mName = ui->nameLine->text();
 }
 
 QString Dialog::getName()
 {
-    QString name = ui->nameLine->text();
-    return name;
+    return mName;
 }
 
 void Dialog::setDirName(const QString &dir)
 {
-    mDirName =  dir;
+    mDirName = ui->dirLine->text();
 
 }
 
 QString Dialog::getDirName()
 {
-    QString dirName = ui->dirLine->text();
-    return dirName;
+    return mDirName;
 }

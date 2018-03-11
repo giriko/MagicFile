@@ -25,10 +25,11 @@ void MainWindow::createActions()
 void MainWindow::newProfile()
 {
     static Dialog* dialog = new Dialog(this);
-    bool ok;
     QString name = dialog->getName();
+    QString dir = dialog->getDirName();
     dialog->show();
-    mDir.append(name);
+    dialog->setName(name);
+    dialog->setDirName(dir);
 }
 
 void MainWindow::about()
