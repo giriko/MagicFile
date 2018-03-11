@@ -20,8 +20,8 @@ public:
     ~Dialog();
     void setName(const QString &name);
     void setDirName(const QString &dir);
-    QString getName();
-    QString getDirName();
+    QString &getName();
+    QString &getDirName();
 
 private slots:
     void on_pushButton_clicked();

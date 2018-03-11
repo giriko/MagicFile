@@ -49,7 +49,7 @@ void MainWindow::saveSettings(Dialog *dialog)
     QString name = dialog->getName();
     QString dir = dialog->getDirName();
 
-    settings.setValue(name, dir);
+
 }
 
 void MainWindow::loadSettings()

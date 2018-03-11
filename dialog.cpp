@@ -1,6 +1,7 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include "tomlhandler.h"
+#include "settingsmanager.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -22,9 +23,10 @@ void Dialog::on_pushButton_clicked()
 
 void Dialog::on_buttonBox_accepted() //TODO: Make this work lol
 {
-    qDebug() << "name: " << mName << " dir " << mDirName;
-        TomlHandler th;
-        th.newTomlProfile(mName, mDirName);
+    qDebug() << "name: " << getName() << " dir " << getDirName();
+    SettingsManager* set = new SettingsManager();
+    set->saveProfileSettings(getName(), getDirName());
+
 }
 
 void Dialog::setName(const QString& name)
@@ -32,7 +34,7 @@ void Dialog::setName(const QString& name)
     mName = ui->nameLine->text();
 }
 
-QString Dialog::getName()
+QString &Dialog::getName()
 {
     return mName;
 }
@@ -43,7 +45,7 @@ void Dialog::setDirName(const QString &dir)
 
 }
 
-QString Dialog::getDirName()
+QString &Dialog::getDirName()
 {
     return mDirName;
 }
