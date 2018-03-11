@@ -1,4 +1,5 @@
 #include "tomlhandler.h"
+#include <iostream>
 
 TomlHandler::TomlHandler()
 {
@@ -16,7 +17,18 @@ void TomlHandler::newTomlProfile(QString& name, QString& dir)
         table->insert("directory", udir);
 
         root->insert(uname, table);
+
+        auto f = parseFile(conf);
+        std::ofstream os;
+        os.open(conf.toStdString());
+        cpptoml::toml_writer* writer(std::stringstream);
+        os << writer;
+
+        //writer->visit(*root);
+       // f->accept(*root);
+
     } else {
+        auto root = this->parseFile(conf);
         auto table = cpptoml::make_table();
         table->insert("directory", udir);
 
@@ -24,12 +36,12 @@ void TomlHandler::newTomlProfile(QString& name, QString& dir)
     }
 }
 
-std::string TomlHandler::toUtf8(QString s)
+inline std::string TomlHandler::toUtf8(QString s)
 {
     return s.toStdString();
 }
 
-std::string* TomlHandler::parseFile(QString &fileName)
+std::shared_ptr<cpptoml::table> TomlHandler::parseFile(QString &fileName)
 {
     try {
         std::string ufile = fileName.toStdString();

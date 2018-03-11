@@ -11,7 +11,7 @@ public:
     TomlHandler();
     void newTomlProfile(QString &name, QString &dir);
     std::string toUtf8(QString s);
-    std::string *parseFile(QString &fileName);
+    std::shared_ptr<cpptoml::table> parseFile(QString &fileName);
 };
 
 #endif // TOMLHANDLER_H
