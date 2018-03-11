@@ -4,6 +4,7 @@
 #include <QSettings>
 #include <QCoreApplication>
 #include <QApplication>
+#include "common.h"
 
 class SettingsManager : public QSettings
 {

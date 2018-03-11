@@ -28,6 +28,10 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_nameLine_textEdited(const QString &arg1);
+
+    void on_dirLine_textChanged(const QString &arg1);
+
 private:
     Ui::Dialog *ui;
     QString mDirName;
