@@ -28,3 +28,14 @@ std::string TomlHandler::toUtf8(QString s)
 {
     return s.toStdString();
 }
+
+std::string* TomlHandler::parseFile(QString &fileName)
+{
+    try {
+        std::string ufile = fileName.toStdString();
+        std::shared_ptr<cpptoml::table> str = cpptoml::parse_file(ufile);
+        return str;
+    } catch (const cpptoml::parse_exception& e){
+        qDebug("Failed to Parse %s : %s", fileName.toStdString(), e.what() );
+    }
+}
