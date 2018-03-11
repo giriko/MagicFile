@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     createActions();
+
+    m_SettingsFile = QApplication::applicationDirPath().left(1) + "conf.ini";
+    loadSettings();
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +33,8 @@ void MainWindow::newProfile()
     dialog->show();
     dialog->setName(name);
     dialog->setDirName(dir);
+
+    saveSettings(dialog);
 }
 
 void MainWindow::about()
@@ -38,4 +43,16 @@ void MainWindow::about()
     qDebug("%s", qUtf8Printable(s));
 }
 
+void MainWindow::saveSettings(Dialog *dialog)
+{
+    QSettings settings(m_SettingsFile, QSettings::IniFormat);
+    QString name = dialog->getName();
+    QString dir = dialog->getDirName();
 
+    settings.setValue(name, dir);
+}
+
+void MainWindow::loadSettings()
+{
+    //placeholder
+}

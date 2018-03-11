@@ -28,7 +28,8 @@ SOURCES += \
         mainwindow.cpp \
     filehandler.cpp \
     dialog.cpp \
-    tomlhandler.cpp
+    tomlhandler.cpp \
+    settingsmanager.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     include/toml/toml.h \
     tomlhandler.h \
     include/toml/cpptoml.h \
-    common.h
+    common.h \
+    settingsmanager.h
 
 FORMS += \
         mainwindow.ui \
