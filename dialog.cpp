@@ -35,7 +35,7 @@ void Dialog::on_buttonBox_accepted() //TODO: Make this work lol
 
 void Dialog::setName(const QString& name)
 {
-    mName = ui->nameLine->setText(name);
+    mName = name;
 }
 
 QString Dialog::getName()
@@ -46,7 +46,7 @@ QString Dialog::getName()
 
 void Dialog::setDirName(const QString &dir)
 {
-    mDirName =  ui->dirLine->setText(dir);
+    mDirName =  dir;
 
 }
 

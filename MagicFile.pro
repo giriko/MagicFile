@@ -27,12 +27,15 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     filehandler.cpp \
-    dialog.cpp
+    dialog.cpp \
+    tomlhandler.cpp
 
 HEADERS += \
         mainwindow.h \
     filehandler.h \
-    dialog.h
+    dialog.h \
+    include/toml/toml.h \
+    tomlhandler.h
 
 FORMS += \
         mainwindow.ui \
