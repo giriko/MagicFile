@@ -35,7 +35,8 @@ HEADERS += \
     filehandler.h \
     dialog.h \
     include/toml/toml.h \
-    tomlhandler.h
+    tomlhandler.h \
+    include/toml/cpptoml.h
 
 FORMS += \
         mainwindow.ui \
