@@ -11,7 +11,8 @@ class SettingsManager : public QSettings
 public:
     SettingsManager();
     void saveProfileSettings(QString &name, QString &dir);
-    void loadSettings();
+    QStringList loadSettings();
+    void copySettings(QSettings &src, QSettings &dest);
 
 private:
     QString m_SettingsFile;

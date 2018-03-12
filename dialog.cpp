@@ -1,6 +1,5 @@
 #include "dialog.h"
 #include "ui_dialog.h"
-#include "tomlhandler.h"
 #include "settingsmanager.h"
 
 Dialog::Dialog(QWidget *parent) :

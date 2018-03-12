@@ -19,8 +19,6 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void loadSettings();
-    void saveSettings(Dialog *dialog);
     ~MainWindow();
 
 private:

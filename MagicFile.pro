@@ -28,16 +28,12 @@ SOURCES += \
         mainwindow.cpp \
     filehandler.cpp \
     dialog.cpp \
-    tomlhandler.cpp \
     settingsmanager.cpp
 
 HEADERS += \
         mainwindow.h \
     filehandler.h \
     dialog.h \
-    include/toml/toml.h \
-    tomlhandler.h \
-    include/toml/cpptoml.h \
     common.h \
     settingsmanager.h
 
